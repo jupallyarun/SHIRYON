@@ -30,33 +30,34 @@
       font-weight: 800;
       margin-bottom: 10px;
       color: white;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
     }
 
     .site-title p {
       font-size: 30px;
       font-weight: 800;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      color: transparent;
+      background: linear-gradient(90deg, #00c6ff, #007bff);
+      -webkit-background-clip: text;
+      text-align: left;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     }
 
     .header-image-container {
-      width: 100vw;
-      margin-top: 30px;
+      width: 100%;
+      height: 100vh;
+      margin-top: 0;
       position: relative;
-      perspective: 1000px;
       overflow: hidden;
     }
 
     .header-image {
-      width: 100vw;
-      height: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
-      object-fit: cover;
-      transform-style: preserve-3d;
-      animation:
-        floatUpDown 6s ease-in-out infinite,
-        rotate3D 12s ease-in-out infinite;
+      animation: floatUpDown 6s ease-in-out, rotate3D 12s ease-in-out;
       position: relative;
       z-index: 1;
     }
@@ -65,38 +66,58 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -50%;
-      width: 50%;
+      left: -100%;
+      width: 100%;
       height: 100%;
       background: linear-gradient(
         120deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(192, 192, 192, 0.4) 50%,
-        rgba(255, 255, 255, 0) 100%
+        rgba(192, 192, 192, 0) 0%,
+        rgba(192, 192, 192, 0.6) 50%,
+        rgba(192, 192, 192, 0) 100%
       );
       transform: skewX(-25deg);
-      animation: shineSilver 3s ease-in-out infinite;
+      animation: silverAnimation 5s ease-in-out;
       z-index: 2;
       pointer-events: none;
     }
 
     @keyframes floatUpDown {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
 
     @keyframes rotate3D {
-      0% { transform: rotateX(0deg) rotateY(0deg); }
-      25% { transform: rotateX(4deg) rotateY(4deg); }
-      50% { transform: rotateX(-4deg) rotateY(-4deg); }
-      75% { transform: rotateX(4deg) rotateY(-4deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      25% {
+        transform: rotateX(4deg) rotateY(4deg);
+      }
+      50% {
+        transform: rotateX(-4deg) rotateY(-4deg);
+      }
+      75% {
+        transform: rotateX(4deg) rotateY(-4deg);
+      }
+      100% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
     }
 
-    @keyframes shineSilver {
-      0% { left: -50%; }
-      100% { left: 120%; }
+    @keyframes silverAnimation {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
     }
 
     .section-wrapper {
@@ -202,6 +223,9 @@
       font-size: 20px;
       font-weight: bold;
       text-align: left;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
 
     footer p {
@@ -241,7 +265,9 @@
       }
 
       .header-image {
-        width: 100vw;
+        width: 100%;
+        height: 100vh;
+        object-fit: contain;
       }
     }
   </style>
@@ -255,7 +281,11 @@
   </div>
 
   <div class="header-image-container">
-    <img class="header-image" src="https://i.postimg.cc/GmYmt6gW/IMG-4601.png" alt="Gym Fashion" />
+    <img
+      class="header-image"
+      src="https://i.postimg.cc/GmYmt6gW/IMG-4601.png"
+      alt="Gym Fashion"
+    />
   </div>
 
   <div class="section-wrapper">
